@@ -35,27 +35,32 @@ class Customer:
         
 
     def ReturnCustomerList(self):
-        return 
+        return
 
     #def CustomerOrders(self):
         #for i in 
         
+class App(tk.Tk):
+    def __init__(self):
+        super.__init__()
+        self.logInWindow = tk.Tk(); self.logInWindow.geometry("400x300")
+        self.nameEntry = tk.Entry(self.logInWindow); self.nameEntry.pack()
+        self.surenameEntry = tk.Entry(self.logInWindow); self.surenameEntry.pack()
+        self.adressEntry = tk.Entry(self.logInWindow); self.adressEntry.pack()
+        
+        self.logInButton = tk.Button(self.logInWindow, text="Zaloguj", command= self.onLogInButtonClick())
+        self.logInButton.pack()
+
+    def onLogInButtonClick(self):
+        Customer(self.nameEntry.get(), self.surenameEntry.get(), self.adressEntry.get())
+
+        
 Product("book", "20.40", 1)
-order = Order("book", 1)
+Order("book", 1)
 
 # def logIn():
-#     Customer(nameEntry.get(), surenameEntry.get(), adressEntry.get())
-
-#     logInWindow.destroy()
-#     mainWindow = tk.Tk(); mainWindow.title("Sklep"); mainWindow.geometry("400x300")
-#     mainWindow.mainloop()
-
-
-logInWindow = tk.Tk(); logInWindow.title("Logowanie"); logInWindow.geometry("400x300")
-
-nameEntry = tk.Entry(logInWindow); nameEntry.pack()
-surenameEntry = tk.Entry(logInWindow); surenameEntry.pack()
-adressEntry = tk.Entry(logInWindow); adressEntry.pack()
-logInButton = tk.Button(logInWindow, text="Zaloguj", command= lambda: Customer(nameEntry.get(), surenameEntry.get(), adressEntry.get())); logInButton.pack()
-
-logInWindow.mainloop()
+# Customer(nameEntry.get(), surenameEntry.get(), adressEntry.get())
+# logInWindow.destroy()
+# mainWindow = tk.Tk(); mainWindow.title("Sklep"); mainWindow.geometry("400x300")
+# mainWindow.mainloop()
+# logInWindow.mainloop()
